@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run clean && parcel serve src/index.html --port 2000 --hmr-port 2001",
-    "build": "npm run clean && parcel build src/index.html --no-cache --detailed-report",
+    "build": "npm run clean && parcel build src/index.html --no-cache --detailed-report && docker build -t cryptoping/cryptoping-web . && docker tag cryptoping/cryptoping-web cryptoping/cryptoping-web && docker push cryptoping/cryptoping-web",
     "--NOT INTENDED TO BE RUN DIRECTLY--": "",
     "clean": "rm -rf dist/ && mkdir -p dist && rm -rf node_modules && npm i --ignore-engines"
   },
