@@ -8,10 +8,11 @@
   "license": "PRIVATE",
   "private": true,
   "scripts": {
-    "dev": "parcel serve src/index.html --port 2000 --hmr-port 2001",
-    "build": "npm run clean && parcel build src/index.html --no-cache --detailed-report && docker build -t cryptoping/cryptoping-web . && docker tag cryptoping/cryptoping-web cryptoping/cryptoping-web && docker push cryptoping/cryptoping-web",
+    "dev": "npm run clean && parcel serve src/index.html --port 2000 --hmr-port 2001",
+    "build:app": "npm run clean && parcel build src/index.html --no-cache --detailed-report",
+    "build:image": "docker build -t cryptoping/cryptoping-web . && docker tag cryptoping/cryptoping-web cryptoping/cryptoping-web && docker push cryptoping/cryptoping-web",
     "--": "",
-    "clean": "rm -rf dist/ && mkdir -p dist && rm -rf node_modules && npm i --ignore-engines"
+    "clean": "rm -rf dist/* && mkdir -p dist && rm -rf node_modules && npm i"
   },
   "dependencies": {
     "axios": "^0.18.0",
