@@ -1,8 +1,8 @@
 <section>
   <Header />
   <Hero />
-  <Footer />
 </section>
+<Footer />
 
 <script>
   export default {
@@ -17,11 +17,10 @@
 <style>
   section {
     flex: 1;
-  }
-  h1 {
-    color: #fff;
-    font-size: 3em;
-    font-weight: 100;
-    margin-right: 2em;
+    background: url(http://react.pixelstrap.com/tovo/static/media/home2-slider.eb435f59.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
 </style>
