@@ -7,7 +7,6 @@
     margin: 1em;
     text-align: center;
   }
-
   span {
     color: #000;
   }

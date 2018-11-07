@@ -1,7 +1,7 @@
 <section>
   <div class="info-text">
     <h1>Anonymously monitor your cryptocurrency addresses!</h1>
-    <p class="small">CryptoPing watches the blockchain to alert you activity on an address. This is useful if you use a hardware wallet or keep your crypto in cold storage.</p>
+    <p class="small">CryptoPing watches the blockchain to alert you of activity on an address. This is useful if you use a hardware wallet or keep your crypto in cold storage.</p>
   <div>
 </section>
 
@@ -37,7 +37,7 @@
     line-height: 1.1;
     display: block;
     font-size: 2.0em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
   }
   .small {
     font-weight: 300;
