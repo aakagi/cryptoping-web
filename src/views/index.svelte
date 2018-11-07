@@ -1,12 +1,15 @@
 <section>
-  <h1>CryptoPiiiiiiiiiiiing</h1>
+  <Header />
+  <Hero />
+  <Footer />
 </section>
-<Footer />
 
 <script>
   export default {
     components: {
-      Footer: '../components/Footer'
+      Header: '../sections/Header',
+      Hero: '../sections/Hero',
+      Footer: '../sections/Footer',
     }
   }
 </script>
@@ -14,9 +17,7 @@
 <style>
   section {
     flex: 1;
-    text-align: right;
   }
-
   h1 {
     color: #fff;
     font-size: 3em;
