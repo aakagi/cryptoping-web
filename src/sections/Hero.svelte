@@ -14,7 +14,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin-top: 14rem;
+    margin-top: 10rem;
     padding: 0 2rem;
     max-width: 50%;
     width: 26rem;
