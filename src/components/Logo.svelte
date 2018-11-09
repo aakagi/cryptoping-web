@@ -23,7 +23,7 @@
     background-size: cover;
     content: '';
     height: 45px;
-    width: 38px;
+    width: 39px;
   }
   .text {
     color: #fff;
