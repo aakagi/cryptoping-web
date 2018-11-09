@@ -5,14 +5,6 @@
   <div>
 </section>
 
-<script>
-  export default {
-    data: () => ({
-
-    }),
-  }
-</script>
-
 <style>
   section {
     flex: 1;
@@ -22,7 +14,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin-top: 10rem;
+    margin-top: 14rem;
     padding: 0 2rem;
     max-width: 50%;
     width: 26rem;

@@ -20,12 +20,6 @@
     flex: 1;
     overflow-y: hidden;
     overflow-x: hidden;
-
-    /*background: url(../static/images/hero-bg.svg);
-    background-size: auto;
-    background-position: 53% 61%;
-    background-repeat: no-repeat;
-    min-height: 100vh;*/
     margin-bottom: 50rem;
   }
   .bg {
