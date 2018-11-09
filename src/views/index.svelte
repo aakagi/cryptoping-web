@@ -20,7 +20,6 @@
     flex: 1;
     overflow-y: hidden;
     overflow-x: hidden;
-    margin-bottom: 20rem;
   }
   .bg {
     z-index: -1;
