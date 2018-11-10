@@ -11,17 +11,18 @@
     color: #fff;
   }
   .info-text {
-    justify-content: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-top: 10rem;
-    padding: 0 2rem;
     max-width: 50%;
+    padding: 0 2rem;
     width: 26rem;
   }
   @media (max-width: 768px) {
     .info-text {
       width: 100%;
+      margin-top: 4rem;
     }
   }
   h1 {

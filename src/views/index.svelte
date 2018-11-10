@@ -30,4 +30,9 @@
     transform: rotate(-30deg) translate(74px, -430px);
     border-bottom-left-radius: 3px;
   }
+  @media (max-width: 768px) {
+    .bg {
+      transform: rotate(-30deg) translate(62px, -546px);
+    }
+  }
 </style>
