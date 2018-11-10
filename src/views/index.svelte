@@ -18,17 +18,17 @@
 <style>
   section {
     flex: 1;
-    overflow-y: hidden;
     overflow-x: hidden;
+    overflow-y: hidden;
   }
   .bg {
-    z-index: -1;
-    position: absolute;
     background: linear-gradient(180deg, rgba(111,183,69,1) 0%, rgba(37,163,202,1) 100%);
-    width: 85rem;
-    height: 52rem;
-    transform: rotate(-30deg) translate(74px, -430px);
     border-bottom-left-radius: 3px;
+    height: 52rem;
+    position: absolute;
+    transform: rotate(-30deg) translate(74px, -430px);
+    width: 85rem;
+    z-index: -1;
   }
   @media (max-width: 768px) {
     .bg {

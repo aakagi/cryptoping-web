@@ -21,21 +21,21 @@
   }
   @media (max-width: 768px) {
     .info-text {
-      width: 100%;
       margin-top: 4rem;
+      width: 100%;
     }
   }
   h1 {
-    font-weight: 700;
-    line-height: 1.1;
     display: block;
     font-size: 2.0em;
+    font-weight: 700;
+    line-height: 1.1;
     margin-bottom: .5em;
   }
   .small {
-    font-weight: 300;
     display: inline;
     font-size: 1em;
+    font-weight: 300;
     line-height: 1.4;
   }
 </style>
