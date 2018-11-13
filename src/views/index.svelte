@@ -18,8 +18,6 @@
 <style>
   section {
     flex: 1;
-    overflow-x: hidden;
-    overflow-y: hidden;
   }
   .bg {
     background: linear-gradient(180deg, rgba(111,183,69,1) 0%, rgba(37,163,202,1) 100%);

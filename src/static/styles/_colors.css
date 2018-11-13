@@ -1,9 +1,3 @@
 :root {
-  --green: #239E74;
-  --green-dark: #074C1B;
-  --green-light: #6AAA77;
   --white: #fff;
-  --white-off: #F9F9F9;
-
-  --green-dark-to-light-gradient: linear-gradient(-45deg, var(--green-light), var(--green-dark));
 }

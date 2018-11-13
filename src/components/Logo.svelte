@@ -19,14 +19,12 @@
   }
   .logo {
     background-image: url(../static/images/cryptoping-logo-white-white.svg);
-    fill: #000;
     background-size: cover;
-    content: '';
     height: 45px;
     width: 39px;
   }
   .text {
-    color: #fff;
+    color: var(--white);
     font-size: 1.4em;
     margin-left: .3em;
     line-height: 1.2;

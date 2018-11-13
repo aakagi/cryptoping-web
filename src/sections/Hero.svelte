@@ -8,7 +8,7 @@
 <style>
   section {
     flex: 1;
-    color: #fff;
+    color: var(--white);
   }
   .info-text {
     display: flex;
