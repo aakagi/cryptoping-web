@@ -7,8 +7,7 @@
     margin: 1em;
     text-align: center;
   }
-
   span {
-    color: #fff;
+    color: #000;
   }
 </style>

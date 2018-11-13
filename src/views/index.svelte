@@ -1,12 +1,16 @@
 <section>
-  <h1>CryptoPiiiiiiiiiiiing</h1>
+  <div class="bg" />
+  <Header />
+  <Hero />
 </section>
 <Footer />
 
 <script>
   export default {
     components: {
-      Footer: '../components/Footer'
+      Header: '../sections/Header',
+      Hero: '../sections/Hero',
+      Footer: '../sections/Footer',
     }
   }
 </script>
@@ -14,13 +18,19 @@
 <style>
   section {
     flex: 1;
-    text-align: right;
   }
-
-  h1 {
-    color: #fff;
-    font-size: 3em;
-    font-weight: 100;
-    margin-right: 2em;
+  .bg {
+    background: linear-gradient(180deg, rgba(111,183,69,1) 0%, rgba(37,163,202,1) 100%);
+    border-bottom-left-radius: 3px;
+    height: 52rem;
+    position: absolute;
+    transform: rotate(-30deg) translate(74px, -430px);
+    width: 85rem;
+    z-index: -1;
+  }
+  @media (max-width: 768px) {
+    .bg {
+      transform: rotate(-30deg) translate(62px, -546px);
+    }
   }
 </style>
