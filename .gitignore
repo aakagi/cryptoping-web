@@ -4,5 +4,9 @@
 # Node Modules
 node_modules
 
+# Mac Hiddle File
+.DS_Store
+
 # Build
-dist
+# KEEPING BUILD TO PUSH TO S3!
+## dist
