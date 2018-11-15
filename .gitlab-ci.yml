@@ -1,0 +1,16 @@
+variables:
+  AWS_DEFAULT_REGION: us-west-2
+  BUCKET_NAME: dev.cryptoping.com
+
+deploy dev to s3:
+  image: "python:latest"
+  stage: deploy
+  before_script:
+    - pip install awscli
+  script:
+    - aws s3 cp ./dist s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
+  only:
+    - dev
+  environment:
+    name: dev-${CI_COMMIT_REF_SLUG}
+    url: https://dev.cryptoping.com/${CI_COMMIT_REF_SLUG}
