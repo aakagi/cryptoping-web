@@ -3,6 +3,7 @@ variables:
 
 build_dist:
   image: node:10.11.0
+  stage: build
   script:
     - npm install
     - npm run build:app
@@ -10,7 +11,8 @@ build_dist:
 .deploy_to_s3:  # `.` ignores the script
   image: "python:latest"
   stage: deploy
-  dependencies: build_dist
+  dependencies:
+    - build_dist
   before_script:
     - pip install awscli
     - echo BUCKET_NAME:${BUCKET_NAME}
