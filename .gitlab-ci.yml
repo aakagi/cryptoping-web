@@ -1,7 +1,8 @@
 variables:
   AWS_DEFAULT_REGION: us-west-2
 
-deploy to s3:
+# `.` ignores the script
+.deploy to s3:
   image: "python:latest"
   stage: deploy
   before_script:
@@ -11,9 +12,6 @@ deploy to s3:
   environment:
     name: ${CI_COMMIT_REF_SLUG}
     url: https://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG}
-  except:
-    variables:
-      - $BUCKET_NAME
 
 deploy dev to s3:
   extends: .deploy to s3
