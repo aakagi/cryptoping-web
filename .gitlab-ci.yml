@@ -3,9 +3,6 @@ variables:
   BUCKET_NAME: dev.cryptoping.com
 
 deploy dev to s3:
-  only:
-    refs:
-      - dev
   image: "python:latest"
   stage: deploy
   before_script:
