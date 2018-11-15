@@ -13,7 +13,7 @@ deploy to s3:
     url: https://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG}
   except:
     variables:
-      - ${BUCKET_NAME}
+      - $BUCKET_NAME
 
 deploy dev to s3:
   extends: .deploy to s3
