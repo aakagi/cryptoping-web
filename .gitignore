@@ -8,5 +8,4 @@ node_modules
 .DS_Store
 
 # Build
-# KEEPING BUILD TO PUSH TO S3!
-## dist
+dist
