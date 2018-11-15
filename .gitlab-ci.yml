@@ -7,6 +7,9 @@ build_dist:
   script:
     - npm install
     - npm run build:app
+  artifacts:
+    paths:
+      - dist/
 
 .deploy_to_s3:  # `.` ignores the script
   image: "python:latest"
