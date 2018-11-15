@@ -1,28 +1,70 @@
 variables:
   AWS_DEFAULT_REGION: us-west-2
 
-# `.` ignores the script
-.deploy to s3:
+
+.deploy to s3:  # `.` ignores the script
   image: "python:latest"
   stage: deploy
   before_script:
     - pip install awscli
+    - echo BUCKET_NAME:${BUCKET_NAME}
+    - echo CI_COMMIT_REF_SLUG:${CI_COMMIT_REF_SLUG}
+
+# Deploys non prod branches to dev.cryptoping.com/branch_slug
+deploy dev branches to s3:
+  extends: .deploy to s3
+  except:
+    - master
+  variables:
+    BUCKET_NAME: dev.cryptoping.com
   script:
     - aws s3 cp ./dist s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
   environment:
     name: ${CI_COMMIT_REF_SLUG}
     url: https://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG}
 
-deploy dev to s3:
-  extends: .deploy to s3
-  only:
-    - dev
-  variables:
-    BUCKET_NAME: dev.cryptoping.com
-
-deploy prod to s3:
+deploy staging to s3:
   extends: .deploy to s3
   only:
     - master
   variables:
+    BUCKET_NAME: staging.cryptoping.com
+  script:
+    - aws s3 cp ./dist s3://${BUCKET_NAME} --recursive
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    url: https://${BUCKET_NAME}
+
+deploy prod to s3:
+  extends: deploy staging to s3
+  variables:
     BUCKET_NAME: cryptoping.com
+  when: manual
+
+
+
+.clean s3:
+  image: "python:latest"
+  stage: deploy
+  before_script:
+    - pip install awscli
+  script:
+    - aws s3 rm s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    action: stop
+  when: manual
+
+clean dev:
+  extends: .clean s3
+  except:
+    - master
+  variables:
+    BUCKET_NAME: dev.cryptoping.com
+
+clean staging:
+  extends: .clean s3
+  only:
+    - master
+  variables:
+    BUCKET_NAME: staging.cryptoping.com
