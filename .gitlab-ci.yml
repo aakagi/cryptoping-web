@@ -9,7 +9,7 @@ variables:
     - echo BUCKET_NAME:${BUCKET_NAME}
     - echo CI_COMMIT_REF_SLUG:${CI_COMMIT_REF_SLUG}
   script:
-    - aws s3 sync ./dist s3://${BUCKET_NAME}
+    - aws s3 sync ./dist s3://${BUCKET_NAME} --delete
   environment:
     name: ${CI_COMMIT_REF_SLUG}
     url: https://${BUCKET_NAME}
