@@ -1,3 +1,7 @@
+{#if !DEV}
+  <Matomo />
+{/if}
+
 <section>
   <div class="bg" />
   <Header />
@@ -8,10 +12,14 @@
 <script>
   export default {
     components: {
+      Matomo: '../components/Matomo',
       Header: '../sections/Header',
       Hero: '../sections/Hero',
       Footer: '../sections/Footer',
-    }
+    },
+    data: () => ({
+      DEV: process.env.NODE_ENV === 'development', // parcel sets to 'development' by default
+    }),
   }
 </script>
 

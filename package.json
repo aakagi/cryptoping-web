@@ -8,7 +8,7 @@
   "license": "PRIVATE",
   "private": true,
   "scripts": {
-    "dev": "npm run clean && parcel serve src/index.html --port 2000 --hmr-port 2001",
+    "dev": "npm run clean && parcel serve src/index.html DEV=true --port 2000 --hmr-port 2001",
     "build:app": "npm run clean && parcel build src/index.html --no-cache --detailed-report",
     "build:image": "docker build -t cryptoping/cryptoping-web . && docker tag cryptoping/cryptoping-web cryptoping/cryptoping-web && docker push cryptoping/cryptoping-web",
     "--": "",
