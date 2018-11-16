@@ -32,6 +32,7 @@ deploy_dev:
     - dev
   variables:
     BUCKET_NAME: dev.cryptoping.com
+    NODE_ENV: 'development'
 
 deploy_master:
   extends: .deploy_to_s3
