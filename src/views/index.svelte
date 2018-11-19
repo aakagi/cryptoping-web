@@ -1,4 +1,4 @@
-{#if !DEV}
+{#if PROD}
   <Matomo />
 {/if}
 
@@ -10,6 +10,7 @@
 <Footer />
 
 <script>
+  console.log('process.env.PROD', process.env.PROD)
   export default {
     components: {
       Matomo: '../components/Matomo',
@@ -18,7 +19,7 @@
       Footer: '../sections/Footer',
     },
     data: () => ({
-      DEV: process.env.NODE_ENV === 'development', // parcel sets to 'development' by default
+      PROD: process.env.PROD,
     }),
   }
 </script>
