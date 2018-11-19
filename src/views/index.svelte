@@ -10,8 +10,6 @@
 <Footer />
 
 <script>
-  console.log('process.env.PROD', process.env.PROD)
-  console.log('process.env.DEV', process.env.DEV)
   export default {
     components: {
       Matomo: '../components/Matomo',
@@ -20,7 +18,7 @@
       Footer: '../sections/Footer',
     },
     data: () => ({
-      PROD: process.env.PROD,
+      PROD: process.env.ENV === 'PROD',
     }),
   }
 </script>
