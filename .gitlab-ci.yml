@@ -32,7 +32,7 @@ deploy_dev:
     - dev
   variables:
     BUCKET_NAME: dev.cryptoping.com
-    DEV: true
+    DEV: TRUE
 
 deploy_master:
   extends: .deploy_to_s3
@@ -40,4 +40,4 @@ deploy_master:
     - master
   variables:
     BUCKET_NAME: cryptoping.com
-    PROD: true
+    PROD: TRUE
