@@ -28,8 +28,6 @@ build_prod:
 .deploy_to_s3:  # `.` ignores the script
   image: "python:latest"
   stage: deploy
-  dependencies:
-    - build_dist
   before_script:
     - pip install awscli
     - echo BUCKET_NAME:${BUCKET_NAME}
@@ -42,6 +40,8 @@ build_prod:
 
 deploy_dev:
   extends: .deploy_to_s3
+  dependencies:
+    - build_dev
   only:
     - dev
   variables:
@@ -50,6 +50,8 @@ deploy_dev:
 
 deploy_prod:
   extends: .deploy_to_s3
+  dependencies:
+    - build_prod
   only:
     - master
   variables:
