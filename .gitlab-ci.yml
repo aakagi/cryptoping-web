@@ -1,16 +1,56 @@
 variables:
   AWS_DEFAULT_REGION: us-west-2
-  BUCKET_NAME: dev.cryptoping.com
 
-deploy dev to s3:
+.build_dist:
+  image: node:10.11.0
+  stage: build
+  script:
+    - npm install
+    - npm run build:app
+  artifacts:
+    paths:
+      - dist/
+
+build_dev:
+  extends: .build_dist
+  only:
+    - dev
+
+build_prod:
+  extends: .build_dist
+  only:
+    - master
+  variables:
+    ENV: PROD
+
+.deploy_to_s3:  # `.` ignores the script
   image: "python:latest"
   stage: deploy
   before_script:
     - pip install awscli
+    - echo BUCKET_NAME:${BUCKET_NAME}
+    - echo CI_COMMIT_REF_SLUG:${CI_COMMIT_REF_SLUG}
   script:
-    - aws s3 cp ./dist s3://${BUCKET_NAME}/${CI_COMMIT_REF_SLUG} --recursive
+    - aws s3 sync ./dist s3://${BUCKET_NAME} --delete
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    url: https://${BUCKET_NAME}
+
+deploy_dev:
+  extends: .deploy_to_s3
+  dependencies:
+    - build_dev
   only:
     - dev
-  environment:
-    name: dev-${CI_COMMIT_REF_SLUG}
-    url: https://dev.cryptoping.com/${CI_COMMIT_REF_SLUG}
+  variables:
+    BUCKET_NAME: dev.cryptoping.com
+    TEST: TEST
+
+deploy_prod:
+  extends: .deploy_to_s3
+  dependencies:
+    - build_prod
+  only:
+    - master
+  variables:
+    BUCKET_NAME: cryptoping.com

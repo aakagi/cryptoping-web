@@ -1,0 +1,11 @@
+# Parcel Cache
+.cache
+
+# Node Modules
+node_modules
+
+# Mac Hiddle File
+.DS_Store
+
+# Build
+dist
