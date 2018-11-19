@@ -10,9 +10,6 @@
 <Footer />
 
 <script>
-  console.log('process.env.ENV', process.env.ENV)
-  console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-  console.log('process.env.TEST', process.env.TEST)
   export default {
     components: {
       Matomo: '../components/Matomo',

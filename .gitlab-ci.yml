@@ -15,8 +15,6 @@ build_dev:
   extends: .build_dist
   only:
     - dev
-  variables:
-    TEST: TEST
 
 build_prod:
   extends: .build_dist
