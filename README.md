@@ -2,5 +2,5 @@
 
 local env
 ```
-DEV=true  # removes matomo analytics tag
+ENV=PROD  # Adds matomo analytics tag
 ```
