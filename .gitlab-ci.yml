@@ -1,7 +1,7 @@
 variables:
   AWS_DEFAULT_REGION: us-west-2
 
-build_dist:
+.build_dist:
   image: node:10.11.0
   stage: build
   script:
@@ -10,6 +10,20 @@ build_dist:
   artifacts:
     paths:
       - dist/
+
+build_dev:
+  extends: .build_dist
+  only:
+    - dev
+  variables:
+    TEST: TEST
+
+build_prod:
+  extends: .build_dist
+  only:
+    - master
+  variables:
+    ENV: PROD
 
 .deploy_to_s3:  # `.` ignores the script
   image: "python:latest"
@@ -34,10 +48,9 @@ deploy_dev:
     BUCKET_NAME: dev.cryptoping.com
     TEST: TEST
 
-deploy_master:
+deploy_prod:
   extends: .deploy_to_s3
   only:
     - master
   variables:
     BUCKET_NAME: cryptoping.com
-    ENV: PROD
