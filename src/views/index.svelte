@@ -11,6 +11,7 @@
 
 <script>
   console.log('process.env.PROD', process.env.PROD)
+  console.log('process.env.DEV', process.env.DEV)
   export default {
     components: {
       Matomo: '../components/Matomo',
